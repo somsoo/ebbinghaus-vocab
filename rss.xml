@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>망각곡선 보카 부스터</title>
+    <link>https://ebbinghaus-vocab.enjoy-onepage.com/</link>
+    <description>에빙하우스 망각곡선과 간격 반복 알고리즘을 적용한 인터랙티브 스마트 플래시카드 보카 엔진</description>
+    <language>ko</language>
+    <item>
+      <title>망각곡선 보카 부스터 런칭</title>
+      <link>https://ebbinghaus-vocab.enjoy-onepage.com/</link>
+      <description>에빙하우스 망각곡선 시각화와 4단계 간격 반복(Spaced Repetition) 시스템을 갖춘 웹앱이 출시되었습니다.</description>
+      <pubDate>Fri, 02 Oct 2026 21:45:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss>

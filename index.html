@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- PAGE:HEAD START -->
+<title>망각곡선 보카 부스터 | 에빙하우스 간격 반복 플래시카드 & 기억률 시각화</title>
+<meta name="description" content="에빙하우스 망각곡선과 FSRS 간격 반복 알고리즘으로 뇌의 최적 복습 타이밍을 실시간 시각화하고 단어를 장기기억으로 고착화하는 지능형 플래시카드 보카 엔진.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ebbinghaus-vocab.enjoy-onepage.com/">
+<link rel="alternate" hreflang="ko" href="https://ebbinghaus-vocab.enjoy-onepage.com/">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<link rel="manifest" href="/manifest.json">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="즐겨요 원페이지">
+<meta property="og:title" content="망각곡선 보카 부스터 | 에빙하우스 간격 반복 플래시카드 & 기억률 시각화">
+<meta property="og:description" content="에빙하우스 망각곡선과 FSRS 간격 반복 알고리즘으로 뇌의 최적 복습 타이밍을 실시간 시각화하고 단어를 장기기억으로 고착화하는 지능형 플래시카드 보카 엔진.">
+<meta property="og:url" content="https://ebbinghaus-vocab.enjoy-onepage.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="망각곡선 보카 부스터 | 에빙하우스 간격 반복 플래시카드 & 기억률 시각화">
+<meta name="twitter:description" content="에빙하우스 망각곡선과 FSRS 간격 반복 알고리즘으로 뇌의 최적 복습 타이밍을 실시간 시각화하고 단어를 장기기억으로 고착화하는 지능형 플래시카드 보카 엔진.">
+<link rel="alternate" type="application/rss+xml" title="망각곡선 보카 부스터 RSS" href="https://ebbinghaus-vocab.enjoy-onepage.com/rss.xml">
+<link rel="sitemap" type="application/xml" href="https://ebbinghaus-vocab.enjoy-onepage.com/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://ebbinghaus-vocab.enjoy-onepage.com/#webapp",
+      "name": "망각곡선 보카 부스터",
+      "url": "https://ebbinghaus-vocab.enjoy-onepage.com/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ko",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "description": "에빙하우스 망각곡선과 간격 반복(Spaced Repetition) 원리를 활용하여 단어 망각률을 실시간 계산하고 장기기억을 완성하는 인터랙티브 보카 플래시카드 웹앱.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ebbinghaus-vocab.enjoy-onepage.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "에빙하우스 망각곡선이란 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "독일의 심리학자 헤르만 에빙하우스가 발견한 기억의 자연 감쇠 법칙으로, 사람은 새로운 지식을 배운 지 20분 만에 42%, 하루 만에 67%를 잊어버립니다. 하지만 주기적인 간격 반복 복습을 거치면 망각 속도가 현저히 느려져 영구적인 장기기억으로 전환됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "간격 반복(Spaced Repetition)은 왜 효과적인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "뇌는 지식이 잊혀지기 직전인 '골든 타임'에 뇌세포를 쥐어짜내 기억을 회상(노력적 인출)할 때 가장 강력하게 시냅스 연결을 강화합니다. 망각곡선 보카 부스터는 이 타이밍을 자동으로 계산해 복습 주기를 설계합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "내 단어 학습 데이터가 서버에 저장되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아닙니다. 망각곡선 보카 부스터의 모든 단어 데이터, 학습 이력, 커스텀 단어장은 100% 사용자의 기기 브라우저(LocalStorage / IndexedDB)에만 안전하게 암호화 보관되며 외부 서버로 절대 전송되지 않습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- PAGE:HEAD END -->
+<!-- ADSENSE START: loader -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+<!-- ADSENSE END: loader -->
+<link rel="stylesheet" href="style.css?v=1.1">
+</head>
+<body>
+
+<!-- Header - Kiro Signature Gradient Brand Header -->
+<header class="header">
+  <h1>🧠 망각곡선 보카 부스터</h1>
+  <div class="header-sub">에빙하우스 뇌과학 간격 반복(Spaced Repetition) 플래시카드 · 100% 로컬 연산</div>
+</header>
+
+<main class="wrap">
+
+  <!-- ADSENSE START: top -->
+  <div class="ad-box ad-top">
+    <ins class="adsbygoogle" style="display:inline-block;width:100%;height:60px" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3824727725" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: top -->
+
+  <!-- Top Control Bar -->
+  <div class="control-bar">
+    <div class="deck-select-group">
+      <label for="deck-select" class="deck-select-label">📚 단어 덱:</label>
+      <select id="deck-select" class="deck-select" aria-label="학습 단어 덱 선택">
+        <option value="csat">수능·학평 필수 빈출 50</option>
+        <option value="toeic">토익·비즈니스 핵심 50</option>
+        <option value="basic">중학·일상 필수 기초 50</option>
+        <option value="custom">나만의 단어장</option>
+      </select>
+    </div>
+    
+    <div class="streak-group" id="streak-badge" title="매일 학습하여 스트릭을 이어가세요!">
+      🔥 연속 <span id="streak-days">1</span>일차 학습 중
+    </div>
+
+    <button type="button" class="btn-sound" id="btn-sound-toggle" aria-label="발음 음성 안내 토글">
+      🔊 발음 소리 켬
+    </button>
+  </div>
+
+  <!-- 2-Column Gold Standard Grid (PC 1:1, Mobile 1-Column) -->
+  <div class="grid2">
+
+    <!-- Column 1: Interactive 3D Flashcard & 4-Step Evaluation -->
+    <section class="card" aria-labelledby="card-section-title">
+      <div class="card-header-row">
+        <h2 id="card-section-title">🃏 1. 스마트 플래시카드</h2>
+      </div>
+
+      <!-- 3D Flip Card Container -->
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="플래시카드 클릭하여 뒤집기">
+          
+          <!-- Card Front -->
+          <div class="card-face card-front">
+            <div class="card-badge-row">
+              <span class="pos-tag" id="card-front-pos">형용사</span>
+              <span id="card-progress-text">1 / 50</span>
+            </div>
+            
+            <div class="card-main-content">
+              <div class="word-term" id="card-word">comprehensive</div>
+              <div class="word-phonetic" id="card-phonetic">[ˌkɑːmprɪˈhensɪv]</div>
+              <button type="button" class="btn-sound" id="btn-speak-front" style="margin: 0 auto 12px auto;" aria-label="원어민 발음 듣기">
+                🔊 원어민 발음
+              </button>
+              <div class="word-example" id="card-front-example">
+                "The school offers a ________ study program for all students."
+              </div>
+            </div>
+
+            <div class="card-footer-tip">
+              👆 카드를 탭(클릭)하면 뜻과 어원 연상 힌트가 나타납니다.
+            </div>
+          </div>
+
+          <!-- Card Back -->
+          <div class="card-face card-back">
+            <div class="card-badge-row">
+              <span class="pos-tag" id="card-back-pos">형용사</span>
+              <span id="card-stage-text">1차 학습</span>
+            </div>
+
+            <div class="card-main-content">
+              <div class="word-meaning" id="card-meaning">종합적인, 포괄적인</div>
+              <div class="word-hint" id="card-hint">
+                💡 <strong>어원 힌트:</strong> com(완전히) + prehend(붙잡다) → 모든 것을 완전히 붙잡아 아우르는
+              </div>
+              <div class="word-example" id="card-back-example">
+                "The school offers a <strong>comprehensive</strong> study program."
+              </div>
+              <div class="word-example-ko" id="card-back-example-ko">
+                "그 학교는 모든 학생을 위한 종합적인 교육 프로그램을 제공한다."
+              </div>
+            </div>
+
+            <div class="card-footer-tip">
+              아래 4단계 평가 버튼을 눌러 복습 주기를 배정하세요.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4-Step Spaced Repetition Buttons -->
+      <div class="eval-section">
+        <div class="eval-prompt">기억 정도를 선택하면 다음 복습 시점이 계산됩니다:</div>
+        <div class="eval-grid">
+          <button type="button" class="btn-eval btn-again" data-rating="again">
+            <span class="eval-label">🔴 다시</span>
+            <span class="eval-interval">1분 뒤</span>
+          </button>
+          <button type="button" class="btn-eval btn-hard" data-rating="hard">
+            <span class="eval-label">🟡 어려움</span>
+            <span class="eval-interval">1일 뒤</span>
+          </button>
+          <button type="button" class="btn-eval btn-good" data-rating="good">
+            <span class="eval-label">🟢 보통</span>
+            <span class="eval-interval">3일 뒤</span>
+          </button>
+          <button type="button" class="btn-eval btn-easy" data-rating="easy">
+            <span class="eval-label">🔵 쉬움</span>
+            <span class="eval-interval">7일 뒤</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation & Shuffle -->
+      <div class="card-nav">
+        <button type="button" class="btn-secondary" id="btn-prev-card">
+          ◀ 이전 카드
+        </button>
+        <button type="button" class="btn-secondary" id="btn-shuffle-deck">
+          🔀 순서 섞기
+        </button>
+        <button type="button" class="btn-secondary" id="btn-next-card">
+          다음 카드 ▶
+        </button>
+      </div>
+    </section>
+
+    <!-- Column 2: Real-Time Ebbinghaus Forgetting Curve & Retention Stats -->
+    <section class="card" aria-labelledby="chart-section-title">
+      <div class="card-header-row">
+        <h2 id="chart-section-title">📊 2. 실시간 망각곡선 분석</h2>
+      </div>
+
+      <!-- Current Retention Gauge -->
+      <div class="retention-meter">
+        <div>
+          <div class="retention-label">현재 단어 기억 잔존율</div>
+          <div style="font-size: 0.8rem; color: #64748b; margin-top: 2px;" id="retention-desc">
+            복습 권장: 골든 타임 도달 전
+          </div>
+        </div>
+        <div class="retention-value" id="retention-pct">100%</div>
+      </div>
+
+      <!-- Live SVG Forgetting Curve Chart -->
+      <div class="chart-box">
+        <svg class="svg-chart" id="forgetting-chart" viewBox="0 0 500 220" aria-label="에빙하우스 망각곡선 인터랙티브 시각화 차트">
+          <defs>
+            <linearGradient id="decayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#ef4444" stop-opacity="0.0"/>
+            </linearGradient>
+            <linearGradient id="boostGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Grid Lines -->
+          <line x1="50" y1="30" x2="480" y2="30" stroke="#e2e8f0" stroke-dasharray="4,4" />
+          <line x1="50" y1="75" x2="480" y2="75" stroke="#e2e8f0" stroke-dasharray="4,4" />
+          <line x1="50" y1="120" x2="480" y2="120" stroke="#fed7aa" stroke-dasharray="4,4" /> <!-- 60% Critical Golden Line -->
+          <line x1="50" y1="165" x2="480" y2="165" stroke="#e2e8f0" stroke-dasharray="4,4" />
+          
+          <!-- Axes -->
+          <line x1="50" y1="20" x2="50" y2="185" stroke="#94a3b8" stroke-width="2" />
+          <line x1="50" y1="185" x2="480" y2="185" stroke="#94a3b8" stroke-width="2" />
+
+          <!-- Y-Axis Labels -->
+          <text x="42" y="34" font-size="11" fill="#64748b" text-anchor="end">100%</text>
+          <text x="42" y="79" font-size="11" fill="#64748b" text-anchor="end">75%</text>
+          <text x="42" y="124" font-size="11" fill="#ea580c" font-weight="bold" text-anchor="end">60%</text>
+          <text x="42" y="169" font-size="11" fill="#64748b" text-anchor="end">25%</text>
+
+          <!-- X-Axis Labels -->
+          <text x="50" y="202" font-size="11" fill="#64748b" text-anchor="middle">학습직후</text>
+          <text x="135" y="202" font-size="11" fill="#64748b" text-anchor="middle">20분</text>
+          <text x="220" y="202" font-size="11" fill="#64748b" text-anchor="middle">1일</text>
+          <text x="310" y="202" font-size="11" fill="#64748b" text-anchor="middle">3일</text>
+          <text x="400" y="202" font-size="11" fill="#64748b" text-anchor="middle">7일</text>
+          <text x="475" y="202" font-size="11" fill="#64748b" text-anchor="middle">30일</text>
+
+          <!-- Decay Curve (No review - drops sharply) -->
+          <path id="path-decay-fill" d="M 50 30 Q 110 130, 220 155 T 480 178 L 480 185 L 50 185 Z" fill="url(#decayGrad)" />
+          <path id="path-decay" d="M 50 30 Q 110 130, 220 155 T 480 178" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,4" />
+
+          <!-- Spaced Repetition Boost Curve (Dynamic) -->
+          <path id="path-boost-fill" d="M 50 30 Q 120 40, 220 48 T 480 62 L 480 185 L 50 185 Z" fill="url(#boostGrad)" />
+          <path id="path-boost" d="M 50 30 Q 120 40, 220 48 T 480 62" fill="none" stroke="#10b981" stroke-width="3" />
+
+          <!-- Current Word Point Indicator -->
+          <circle id="point-current" cx="50" cy="30" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="2" />
+        </svg>
+
+        <div class="chart-legend">
+          <span class="legend-item">
+            <span class="legend-dot dot-decay"></span>
+            복습 없는 망각선 (급격한 소멸)
+          </span>
+          <span class="legend-item">
+            <span class="legend-dot dot-boost"></span>
+            간격 반복 복습선 (장기기억 고착)
+          </span>
+        </div>
+      </div>
+
+      <!-- Today's Study Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-pill">
+          <div class="stat-num" id="stat-due">0</div>
+          <div class="stat-desc">⏰ 오늘 복습 필요</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-num" id="stat-learning">1</div>
+          <div class="stat-desc">📖 학습 진행 중</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-num" id="stat-mastered">0</div>
+          <div class="stat-desc">🏆 장기기억 고착</div>
+        </div>
+      </div>
+
+      <!-- Quick Word Add Form -->
+      <div class="quick-add-box">
+        <div class="quick-add-title">➕ 나만의 단어 즉시 추가</div>
+        <form id="form-quick-add" class="quick-add-form" onsubmit="return false;">
+          <input type="text" id="input-new-word" class="input-text" placeholder="영어 단어 (예: resilient)" required>
+          <input type="text" id="input-new-meaning" class="input-text" placeholder="한국어 뜻 (예: 회복력 있는, 탄력적인)" required>
+          <input type="text" id="input-new-example" class="input-text" placeholder="예문 또는 어원 힌트 (선택 사항)">
+          <button type="submit" class="btn-primary" id="btn-add-word">
+            단어장에 저장하기
+          </button>
+        </form>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ADSENSE START: mid -->
+  <div class="ad-box ad-mid">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="1186914926" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: mid -->
+
+  <!-- Educational Guide & FAQ Section -->
+  <section class="guide-section" aria-labelledby="guide-title">
+    <h2 class="guide-title" id="guide-title">🧠 망각곡선 & 간격 반복 학습 원리</h2>
+    
+    <div class="guide-grid">
+      <article class="guide-card">
+        <h3>1. 망각곡선이란? (우리가 단어를 쉽게 잊는 이유)</h3>
+        <p>
+          1885년 독일 심리학자 헤르만 에빙하우스의 실험에 따르면, 인간의 뇌는 새로운 단어를 외운 지 <strong>20분 만에 42%</strong>, <strong>하루 만에 67%</strong>를 망각합니다. 이는 뇌의 결함이 아니라 불필요한 정보를 걸러내는 자연스러운 생존 메커니즘입니다.
+        </p>
+      </article>
+
+      <article class="guide-card">
+        <h3>2. 간격 반복(Spaced Repetition)의 뇌과학</h3>
+        <p>
+          단어를 매일 10번 쓰는 벼락치기보다, <strong>1일 뒤 → 3일 뒤 → 7일 뒤</strong>로 복습 간격을 점점 넓혀가는 간격 반복 학습이 기억 유지율을 최대 90% 이상으로 끌어올립니다. 복습을 반복할 때마다 망각 곡선의 기울기가 점차 완만해져 영구 장기기억으로 고착됩니다.
+        </p>
+      </article>
+
+      <article class="guide-card">
+        <h3>3. 잊어버리기 직전의 '골든 타임' 복습 원리</h3>
+        <p>
+          뇌과학에서 기억이 가장 강하게 형성되는 순간은 <strong>'기억이 가물가물할 때 스스로 힘겹게 떠올리려고 쥐어짤 때(노력적 인출, Effortful Retrieval)'</strong>입니다. 망각곡선 보카 부스터는 기억 잔존율이 60% 안팎으로 떨어지는 시점을 계산하여 카드를 재출제합니다.
+        </p>
+      </article>
+
+      <article class="guide-card">
+        <h3>4. 4단계 평가 버튼의 올바른 활용법</h3>
+        <p>
+          • <strong>다시(Again):</strong> 뜻이 전혀 기억나지 않을 때 선택 (1분 뒤 재출제)<br>
+          • <strong>어려움(Hard):</strong> 뜻을 떠올리는 데 5초 이상 걸렸을 때 (1일 뒤 재출제)<br>
+          • <strong>보통(Good):</strong> 2~3초 내에 적절히 떠올렸을 때 (3일 뒤 재출제)<br>
+          • <strong>쉬움(Easy):</strong> 단어를 보자마자 1초 만에 뜻과 뉘앙스가 떠오를 때 (7일 뒤 재출제)
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ADSENSE START: bottom -->
+  <div class="ad-box ad-bottom">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3416334507" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: bottom -->
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/about.html">서비스 소개</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 망각곡선 보카 부스터 (Ebbinghaus Vocab Booster). 즐겨요 원페이지 에듀테크. All rights reserved.
+  </div>
+</footer>
+
+<script src="app.js?v=1.0"></script>
+</body>
+</html>

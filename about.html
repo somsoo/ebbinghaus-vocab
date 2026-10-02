@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>서비스 소개 및 학습 기준 | 망각곡선 보카 부스터</title>
+<meta name="description" content="망각곡선 보카 부스터의 개발 취지, 에빙하우스 간격 반복 뇌과학 원리 및 로컬 연산 정책을 소개합니다.">
+<link rel="canonical" href="https://ebbinghaus-vocab.enjoy-onepage.com/about.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<style>
+:root{--ink:#0f172a;--accent:#2563eb;--line:#e2e8f0;--bg:#f8fafc}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 16px;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.75;word-break:keep-all}
+.container{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 24px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05)}
+h1{font-size:1.5rem;color:#0f172a;margin:0 0 16px;border-bottom:2px solid var(--accent);padding-bottom:8px}
+h2{font-size:1.15rem;color:#1e3a8a;margin:24px 0 10px}
+p{font-size:0.95rem;color:#475569;margin-bottom:14px}
+ul{margin:0 0 14px 20px;color:#475569;font-size:0.95rem}
+li{margin-bottom:6px}
+.highlight-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin:16px 0;font-size:0.92rem;color:#1e40af}
+.back-btn{display:inline-block;margin-top:20px;padding:10px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:0.9rem}
+.back-btn:hover{background:#1d4ed8}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🧠 망각곡선 보카 부스터 소개</h1>
+  
+  <p><strong>망각곡선 보카 부스터</strong>는 단어를 단순히 깜지 쓰듯 맹목적으로 외우다 쉽게 포기하는 수험생과 학습자들을 위해, 뇌과학자 헤르만 에빙하우스의 <strong>망각곡선(Forgetting Curve)</strong>과 최신 <strong>간격 반복(Spaced Repetition) 알고리즘</strong>을 직관적으로 결합한 지능형 보카 플래시카드 도구입니다.</p>
+
+  <div class="highlight-box">
+    <strong>💡 기획 취지:</strong> "뇌는 잊어버리기 직전, 스스로 힘겹게 회상하려 할 때 가장 강력하게 시냅스를 연결한다." — 최적의 골든 타임 복습 시점을 실시간 시각화하여 단어의 장기기억 고착화를 지원합니다.
+  </div>
+
+  <h2>1. 학술적 근거 및 알고리즘 기준</h2>
+  <ul>
+    <li><strong>에빙하우스 망각곡선 모델:</strong> 기억 잔존율 $R = e^{-t/S}$ (t는 경과 시간, S는 기억 안정도). 복습을 거듭할 때마다 감쇠 기울기 S가 지수적으로 완만해지는 과정을 SVG 차트로 실시간 시각화합니다.</li>
+    <li><strong>FSRS (Free Spaced Repetition Scheduler) 4단계 평가:</strong> 다시(Again, 1분), 어려움(Hard, 1일), 보통(Good, 3일), 쉬움(Easy, 7일)의 점진적 복습 주기 계산.</li>
+    <li><strong>능동적 인출(Active Recall):</strong> 앞면에서는 예문의 핵심 단어를 빈칸 처리하여 수동적 읽기가 아닌 적극적인 뇌 자극 유도.</li>
+    <li><strong>다감각 통합 학습:</strong> Web Speech API를 활용한 원어민 음성 낭독 및 Web Audio API 차임벨 피드백.</li>
+  </ul>
+
+  <h2>2. 100% 브라우저 클라이언트 연산 보증</h2>
+  <p>망각곡선 보카 부스터의 모든 단어 데이터, 개인별 복습 주기 계산, 학습 이력 및 커스텀 단어장은 외부 서버로 전송되지 않고 사용자의 기기 브라우저(LocalStorage) 내에서만 100% 안전하게 보관됩니다.</p>
+
+  <a class="back-btn" href="/">← 플래시카드 학습하러 가기</a>
+</div>
+</body>
+</html>
