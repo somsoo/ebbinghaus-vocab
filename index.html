@@ -95,15 +95,23 @@
   </div>
   <!-- ADSENSE END: top -->
 
-  <!-- Top Control Bar -->
+  <!-- Top Control Bar: Level & Day Selector -->
   <div class="control-bar">
     <div class="deck-select-group">
-      <label for="deck-select" class="deck-select-label">📚 단어 덱:</label>
-      <select id="deck-select" class="deck-select" aria-label="학습 단어 덱 선택">
-        <option value="csat">수능·학평 필수 빈출 50</option>
-        <option value="toeic">토익·비즈니스 핵심 50</option>
-        <option value="basic">중학·일상 필수 기초 50</option>
+      <label for="level-select" class="deck-select-label">🎯 학습 레벨:</label>
+      <select id="level-select" class="deck-select" aria-label="학습 레벨 선택">
+        <option value="elem">초등 기초 800 (Day 01~20)</option>
+        <option value="mid">중학 필수 1,000 (Day 21~45)</option>
+        <option value="high">고등·수능 1,200 (Day 46~75)</option>
+        <option value="all">전체 3,000단어 (Day 01~75)</option>
         <option value="custom">나만의 단어장</option>
+      </select>
+    </div>
+
+    <div class="day-select-group" id="day-select-wrap">
+      <label for="day-select" class="deck-select-label">📅 학습 Day:</label>
+      <select id="day-select" class="day-select" aria-label="학습 Day 선택">
+        <!-- Dynamically populated in app.js -->
       </select>
     </div>
     
@@ -114,6 +122,29 @@
     <button type="button" class="btn-sound" id="btn-sound-toggle" aria-label="발음 음성 안내 토글">
       🔊 발음 소리 켬
     </button>
+  </div>
+
+  <!-- Real-time Progress & Mastery Dashboard -->
+  <div class="mastery-dashboard" aria-label="학습 진도 및 에빙하우스 마스터리 대시보드">
+    <div class="mastery-stats-head">
+      <div class="scope-progress-box">
+        <span class="m-label">선택 Day 진도:</span>
+        <strong id="scope-progress-text">0 / 40 (0%)</strong>
+      </div>
+      <div class="total-mastery-box">
+        <span class="m-label">전체 3,000단어 누적 마스터율:</span>
+        <strong id="total-mastery-text">0 / 3,000 (0.0%)</strong>
+      </div>
+    </div>
+    <div class="progress-track" title="현재 선택 범위 학습 진도율">
+      <div class="progress-fill" id="scope-progress-fill" style="width: 0%"></div>
+    </div>
+    <div class="mastery-chips">
+      <span class="m-chip chip-mastered" title="3회 이상 정답 및 기억 안정화">🏆 장기기억 마스터: <b id="cnt-mastered">0</b></span>
+      <span class="m-chip chip-learning" title="1~2회 학습 진행 중">🔄 학습 중: <b id="cnt-learning">0</b></span>
+      <span class="m-chip chip-due" title="오늘 복습 주기 도래">⏰ 오늘 복습: <b id="cnt-due">0</b></span>
+      <span class="m-chip chip-new" title="아직 한 번도 안 본 단어">✨ 미학습: <b id="cnt-new">3,000</b></span>
+    </div>
   </div>
 
   <!-- 2-Column Gold Standard Grid (PC 1:1, Mobile 1-Column) -->
@@ -394,6 +425,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=1.0"></script>
+<script src="vocab_data.js"></script>
+<script src="app.js?v=2.0"></script>
 </body>
 </html>
