@@ -532,6 +532,32 @@
       });
     }
 
+    // 🔗 URL 단어장 무서버 공유
+    const btnShare = document.getElementById('btnShareCustomVocab');
+    if (btnShare) {
+      btnShare.addEventListener('click', shareCustomVocabUrl);
+    }
+
+    // 💾 JSON 백업 다운로드
+    const btnExport = document.getElementById('btnExportVocab');
+    if (btnExport) {
+      btnExport.addEventListener('click', exportVocabJson);
+    }
+
+    // 📂 JSON 복원
+    const btnImport = document.getElementById('btnImportVocab');
+    const fileInput = document.getElementById('vocabFileInput');
+    if (btnImport && fileInput) {
+      btnImport.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          importVocabFile(e.target.files[0]);
+        }
+      });
+    }
+
+    window.addEventListener('hashchange', checkUrlHash);
+
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       if (['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) return;
@@ -554,14 +580,178 @@
     });
   }
 
+  async function ensurePersistedStorage() {
+    if (navigator.storage && navigator.storage.persist) {
+      const isPersisted = await navigator.storage.persisted();
+      if (!isPersisted) {
+        await navigator.storage.persist();
+      }
+    }
+  }
+
+  // 🔗 무서버 URL 상태 공유 (CompressionStream & Base64URL)
+  async function shareCustomVocabUrl() {
+    const cardsToShare = (state.customCards && state.customCards.length > 0)
+      ? state.customCards
+      : getCurrentDeckCards().slice(0, 30);
+
+    if (cardsToShare.length === 0) {
+      alert("공유할 단어 데이터가 없습니다.");
+      return;
+    }
+
+    try {
+      const stateObj = {
+        title: "공유된 영단어장",
+        cards: cardsToShare.map(c => ({
+          word: c.word,
+          meaning: c.meaning,
+          phonetic: c.phonetic || '',
+          pos: c.pos || '명사'
+        })),
+        createdAt: new Date().toISOString()
+      };
+
+      const jsonStr = JSON.stringify(stateObj);
+      const stream = new Blob([jsonStr]).stream();
+      const compressedStream = stream.pipeThrough(new CompressionStream('deflate'));
+      const response = await new Response(compressedStream);
+      const buffer = await response.arrayBuffer();
+      const bytes = new Uint8Array(buffer);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      const base64 = btoa(binary)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+
+      const shareUrl = `${window.location.origin}${window.location.pathname}#data=${base64}`;
+      await navigator.clipboard.writeText(shareUrl);
+      window.location.hash = `data=${base64}`;
+      alert(`🎉 나만의 단어장(${cardsToShare.length}단어) 공유 링크가 클립보드에 복사되었습니다!\n\n${shareUrl}`);
+    } catch (err) {
+      alert("공유 링크 생성 실패: " + err.message);
+    }
+  }
+
+  // URL 해시 복원
+  async function checkUrlHash() {
+    const hash = window.location.hash;
+    if (!hash.startsWith('#data=')) return false;
+
+    try {
+      const base64 = hash.replace('#data=', '')
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      const stream = new Blob([bytes]).stream();
+      const decompressedStream = stream.pipeThrough(new DecompressionStream('deflate'));
+      const response = await new Response(decompressedStream);
+      const jsonStr = await response.text();
+      const stateObj = JSON.parse(jsonStr);
+
+      if (stateObj && Array.isArray(stateObj.cards) && stateObj.cards.length > 0) {
+        state.customCards = stateObj.cards.map((c, i) => ({
+          id: `shared_${i}_${Date.now()}`,
+          word: c.word,
+          meaning: c.meaning,
+          phonetic: c.phonetic || '',
+          pos: c.pos || '명사',
+          level: 'custom',
+          day: 1,
+          cefr: 'Shared'
+        }));
+        state.levelKey = 'custom';
+        elLevelSelect.value = 'custom';
+        state.currentIndex = 0;
+        saveState();
+        populateDaySelect();
+        renderCard();
+        alert(`🎉 공유받은 단어장(${state.customCards.length}단어)이 성공적으로 로드되었습니다!`);
+        return true;
+      }
+    } catch (err) {
+      console.error("URL 해시 복원 실패:", err);
+    }
+    return false;
+  }
+
+  // 💾 JSON 표준 백업 다운로드
+  function exportVocabJson() {
+    const backupData = {
+      schemaVersion: "1.0.0",
+      appIdentifier: "ebbinghaus-vocab-engine",
+      exportedAt: new Date().toISOString(),
+      payload: {
+        customCards: state.customCards,
+        cardMeta: state.cardMeta,
+        streakDays: state.streakDays,
+        lastActiveDate: state.lastActiveDate
+      }
+    };
+
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const dateStr = new Date().toISOString().slice(0, 10);
+    a.download = `vocab_mastery_backup_${dateStr}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // 📂 JSON 파일 가져오기
+  function importVocabFile(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const parsed = JSON.parse(e.target.result);
+        if (parsed.payload) {
+          if (Array.isArray(parsed.payload.customCards)) {
+            state.customCards = parsed.payload.customCards;
+          }
+          if (parsed.payload.cardMeta) {
+            state.cardMeta = Object.assign({}, state.cardMeta, parsed.payload.cardMeta);
+          }
+          if (parsed.payload.streakDays) {
+            state.streakDays = parsed.payload.streakDays;
+            elStreakDays.textContent = state.streakDays;
+          }
+        } else if (Array.isArray(parsed)) {
+          state.customCards = parsed;
+        }
+
+        saveState();
+        populateDaySelect();
+        renderCard();
+        alert(`📂 '${file.name}' 단어 학습 데이터가 성공적으로 복원되었습니다!`);
+      } catch (err) {
+        alert("백업 파일 복원 실패: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
   // --- Bootstrap ---
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     loadState();
+    await ensurePersistedStorage();
     elStreakDays.textContent = state.streakDays;
     elBtnSoundToggle.textContent = state.soundEnabled ? '🔊 발음 소리 켬' : '🔇 소리 끔';
 
     populateDaySelect();
     initEvents();
-    renderCard();
+
+    const hashLoaded = await checkUrlHash();
+    if (!hashLoaded) {
+      renderCard();
+    }
   });
 })();
